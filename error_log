@@ -1,0 +1,5 @@
+[22-Sep-2016 00:47:23 Etc/GMT] PHP Parse error:  syntax error, unexpected '=' in /home/awwalxpp/public_html/videoapp.awwaldeal.com/videoapp/application/controllers/Api.php on line 31
+[22-Sep-2016 01:22:16 Etc/GMT] PHP Parse error:  syntax error, unexpected 'puvlic' (T_STRING), expecting function (T_FUNCTION) in /home/awwalxpp/public_html/videoapp.awwaldeal.com/application/controllers/Api.php on line 21
+[22-Sep-2016 01:31:34 Etc/GMT] PHP Fatal error:  Call to undefined function form_open_multipart() in /home/awwalxpp/public_html/videoapp.awwaldeal.com/application/views/video_upload.php on line 3
+[22-Sep-2016 01:36:26 Etc/GMT] PHP Fatal error:  Function name must be a string in /home/awwalxpp/public_html/videoapp.awwaldeal.com/application/views/video_upload.php on line 3
+[22-Sep-2016 01:36:58 Etc/GMT] PHP Fatal error:  Call to undefined function base_url() in /home/awwalxpp/public_html/videoapp.awwaldeal.com/application/views/video_upload.php on line 3

@@ -1,0 +1,65 @@
+@font-face {
+    font-family: Vegur;
+    src: url(../fonts/Vegur-Regular.otf);
+}
+
+body {
+    height:100%;
+    background: rgba(248, 80, 50, 1) no-repeat;
+    background: -moz-linear-gradient(top, rgba(248, 80, 50, 1) 0%, rgba(240, 47, 23, 1) 5%, rgba(227, 95, 77, 1) 65%, rgba(245, 186, 171, 1) 87%, rgba(252, 249, 249, 1) 100%) no-repeat;
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248, 80, 50, 1)), color-stop(5%, rgba(240, 47, 23, 1)), color-stop(65%, rgba(227, 95, 77, 1)), color-stop(87%, rgba(245, 186, 171, 1)), color-stop(100%, rgba(252, 249, 249, 1))) no-repeat;
+    background: -webkit-linear-gradient(top, rgba(248, 80, 50, 1) 0%, rgba(240, 47, 23, 1) 5%, rgba(227, 95, 77, 1) 65%, rgba(245, 186, 171, 1) 87%, rgba(252, 249, 249, 1) 100%) no-repeat no-repeat no-repeat no-repeat;
+    background: -o-linear-gradient(top, rgba(248, 80, 50, 1) 0%, rgba(240, 47, 23, 1) 5%, rgba(227, 95, 77, 1) 65%, rgba(245, 186, 171, 1) 87%, rgba(252, 249, 249, 1) 100%) no-repeat no-repeat no-repeat;
+    background: -ms-linear-gradient(top, rgba(248, 80, 50, 1) 0%, rgba(240, 47, 23, 1) 5%, rgba(227, 95, 77, 1) 65%, rgba(245, 186, 171, 1) 87%, rgba(252, 249, 249, 1) 100%) no-repeat no-repeat;
+    background: linear-gradient(to bottom, rgba(248, 80, 50, 1) 0%, rgba(240, 47, 23, 1) 5%, rgba(227, 95, 77, 1) 65%, rgba(245, 186, 171, 1) 87%, rgba(252, 249, 249, 1) 100%) no-repeat;
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#fcf9f9', GradientType=0);
+}
+
+div.centerform {
+    font-family: Vegur;
+    background-color: #fff;
+    border: 3px solid #634674;
+    border-radius: 15px;
+    box-shadow: inherit;
+    margin: 50px auto auto;
+    min-width: 280px;
+    padding: 20px 0;
+    width: 34%;
+}
+
+div.centerform div.error {
+    margin: 0px auto;
+    text-align: center;
+    color: rgb(228, 78, 35);
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h5 {
+    width: 84%;
+    text-transform: uppercase;
+    margin: 20px auto;
+}
+
+div.centerform input[type="text"],
+div.centerform input[type="password"] {
+    display: block;
+    margin: 0 auto 10px;
+    width: 84%;
+    height: 40px;
+    font-size: 16px;
+}
+
+div.centerform input[type="submit"] {
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    color: #fff;
+    background-color: #589656;
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+}

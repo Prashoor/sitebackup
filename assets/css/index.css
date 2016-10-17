@@ -1,0 +1,453 @@
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/raleway_thin.otf);
+}
+
+@font-face {
+    font-family: Vegur;
+    src: url(../fonts/Vegur-Regular.otf);
+}
+
+body {
+    padding: 0;
+    display: flex;
+    margin: 0;
+    height: 100%;
+}
+
+body > div.header {
+    font-family: Vegur;
+    background: #ce563f;
+    width: 15%;
+    border-right: 1px solid #1d1515;
+}
+
+body > div.header .title {
+    color: #e2e2e2;
+    font-size: x-large;
+    margin: 40px 10%;
+}
+
+body > div.header ul.nav {
+    padding: 0;
+    list-style: none;
+}
+
+body > div.header ul.nav li {
+    border-bottom: 1px solid #1d1515;
+}
+
+body > div.header ul.nav li:last-child {
+    border-bottom: none;
+}
+
+body > div.header ul.nav li a {
+    text-decoration: none;
+    padding: 15px 5px 15px 10px;
+    color: #1d1515;
+    background: #ffffff;
+    display: block;
+    text-align: left;
+}
+
+body > div.header ul.nav li a.selected {
+    background: #533687;
+    color: #fff;
+}
+
+body > div.header ul.nav li a::after {
+    content: "→";
+    float: right;
+    font-weight: 900;
+}
+
+body > div.container {
+    font-family: Raleway;
+    display:none;
+    width: 85%;
+    height: 100%;
+}
+
+body > div.container.show {
+    display: block;
+}
+
+.uploadview {
+    background-color: #b64126;
+    border-radius: 16px;
+    display: block;
+    margin: 5% auto auto;
+    padding: 19px 0;
+    text-align: center;
+    position: relative;
+    width: 50%;
+}
+
+form ul.form {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    margin: auto;
+}
+
+ul.form label.input {
+    font-family: Vegur;
+    color:#fff;
+}
+
+ul.form select {
+    width:50%;
+}
+
+ul.form label input[type="file"] {
+    display: none;
+}
+
+ul.form label.fileupload {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+}
+
+label.input, input[type="file"] {
+    height: 40px;
+    width: 100%;
+}
+
+label.input {
+    border-bottom: 1px solid #fff;
+    display: block;
+    float: left;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+label.input input{
+    border: medium none;
+    border-radius: 3px;
+    float: left;
+    height: 40px;
+    margin: 5px 0;
+    width: 62%;
+}
+
+label.input textarea {
+    float: left;
+    height: 80px;
+    border-radius: 3px;
+    margin: 5px 0;
+    resize: none;
+    width: 100%;
+}
+
+div.titlecategory {
+    float: left;
+    width: calc(100% - 20px);
+    padding-left: 20px;
+    background-color: gold;
+    color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+div.imagedisp > div{
+    background-image: url("http://filmibaksa.com/assets/img/movie.png");
+    background-position: center center;
+    background-size: 100% auto;
+    display: block;
+    height: 40px;
+    margin: 20% auto auto;
+    position: relative;
+    width: 40px;
+}
+
+label.input span {
+    width: 32%;
+    text-align: left;
+    display: block;
+    height: calc(100 -20px);
+    margin: 0;
+    padding: 10px;
+    float: left;
+    font-size: 1.2vw;
+    font-size-adjust: auto;
+}
+
+#videotable_wrapper table#videotable {
+    padding-top: 20px;
+}
+
+#videotable_wrapper {
+    font-family: Vegur;
+    width: 80% !important;
+    margin: 0 auto auto 18px;
+    padding-top: 30px;
+}
+
+#videotable_wrapper thead tr > th:first-child{
+    border-top-left-radius: 10px;
+}
+
+#videotable_wrapper thead tr > th {
+    background-color: #121212;
+    border-right: 1px solid #fff;
+    color: #fff;
+}
+
+#videotable_wrapper tbody tr > td:last-child > button {
+    border: none;
+    color: #fff;
+    width: 100px;
+    height: 30px;
+    position:relative;
+    border-radius: 7px;
+    float: left;
+    font-size: 15px;
+    margin: 0 10px;
+}
+#videotable_wrapper tbody tr > td:last-child {
+    padding: 3px 10px;
+    position:relative;
+    float: left;
+}
+
+#videotable_wrapper tbody tr > td:last-child > button.edit {
+    background-color: #25e312;
+}
+
+#videotable_wrapper tbody tr > td:last-child > button.delete {
+    background-color: #a52312;
+}
+
+#videotable_wrapper thead tr > th:last-child {
+    border-right: none;
+    border-top-right-radius: 10px;
+}
+
+input[type="file"] {
+    border-bottom: #222 1px solid;
+    padding: 0 7px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background: #467;
+    border: 1px solid #333;
+    color: #fff;
+    height: 35px;
+    border-radius: 5px;
+    width: 120px;
+    margin-right: 20px;
+}
+
+.uploadview .closeuploader {
+    border:none;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    height: 35px;
+    padding: 5px;
+    width: 120px;
+}
+
+body > div.container > div.header {
+    background: #ce563f none repeat scroll 0 0;
+    color: #fff;
+    padding: 10px 0;
+    margin: 0;
+    width: 100%;
+    float: left;
+}
+
+body > div.container > div.header h3{
+    width: auto;
+    margin-left: 15px;
+    clear: both;
+    float: left;
+}
+
+body > div.container > div.header button {
+   float: right;
+    border: none;
+    height: 35px;
+    min-width: 75px;
+    width: 14%;
+    background-color: #fff;
+    margin-right: 10px;
+}
+
+.modalback {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+div.uploadform, div.editform {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+div#videoplayer {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+div#alert.alertbackdrop, div#confirm.alertbackdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+
+body > div#videoplayer .cross {
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: none;
+    height: 40px;
+    padding: 0;
+    position: relative;
+    right: -20px;
+    text-align: center;
+    top: -20px;
+    width: 40px;
+    z-index: 1000;
+    float: right;
+}
+
+body > div.container div.videocontainer {
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 20px 8px;
+    position: relative;
+    display: inline-block;
+    transition: box-shadow 0.25s ease 0s;
+    padding: 10px;
+    width: calc(30% - 5px);
+    min-width: 300px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+body > div#videoplayer > div {
+    display: block;
+    margin: 10% auto;
+    width: 520px;
+    height: 300px;
+}
+
+body > div#videoplayer div.video-js {
+    width: 100%;
+    height: 100%;
+}
+
+body > div.container div.videocontainer > .videotitle, body > div.container div.videocontainer > .aboutvideo{
+    font-family: Vegur;
+}
+
+body > div.container div.videocontainer > .videotitle {
+    background-color: #a74834;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    display: block;
+    float: left;
+    height: 34px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 10px 5px 0;
+    width: calc(100% - 10px);
+}
+
+body > div.container div.videocontainer > .aboutvideo {
+    display: block;
+    float: left;
+    padding: 0 0 0 5%;
+    width: 35%;
+}
+
+body > div.container div.videocontainer > .aboutvideo > p.video-description {
+    float: left;
+    width: 60%;
+}
+
+
+body > div.container div.videocontainer > .videotitle > span.cost {
+    width: 25%;
+    float: right;
+    height: 30px;    
+}
+
+body > div.container div.videocontainer > .videotitle > span.cost::before {
+    content: "Cost : ₹";
+}
+
+body > div.container div.videocontainer div.imagedisp {
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: 100% auto !important;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 125px;
+    width: 60%;
+}
+
+.video-list {
+    padding: 10px 20px;
+    height: calc(85% - 20px);
+    overflow-y: scroll;
+    display: block;
+}
+
+div#confirm .matter, div#alert .matter {
+    font-family: Vegur;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 156px;
+    margin: 15% auto;
+    width: 260px;
+}
+
+div#alert .title, div#confirm .title {
+    background-color: #578678;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: block;
+    color: #fff;
+    font-size: medium;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+div#alert .alertbody, div#confirm .alertbody {
+    height: 26%;
+    padding: 18px;
+    text-align: center;
+}
+
+div#alert .matter > button , div#confirm .matter > div > button{
+    border: medium none;
+    border-radius: 8px;
+    color: #fff;
+    height: 30px;
+    width: 82px;
+}
+
+div#alert .matter > button {
+    background-color: #2ba37f;
+    display: block;
+    margin: auto;
+}
+
+div#confirm .matter > div > button.hidebtn:first-child {
+    background-color: #2ba37f;
+    margin-left: 8%;
+    float: left;
+}
+
+div#confirm .matter > div > button.hidebtn:last-child {
+    background-color: #e33312;
+    margin-right: 8%;
+    float: right;
+}
