@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'website';
 $route['api'] = 'api';
-$route['admin'] = 'admin';
+$route['videoadmin'] = 'videoadmin';
 $route['videoupload'] = 'videoupload';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

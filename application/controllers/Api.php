@@ -32,10 +32,22 @@ class Api extends CI_Controller {
 	
 	public function featured() {
 		$videos = $this->video_model->get_featured();
+		$categories = $this->video_model->getcategories();
 		$my_videos = array();
 		foreach($videos as $video) {
 			$video['video'] = base_url('videos/' . $video['video']);
 			$video['image_name'] = base_url('images/' . $video['image_name']);
+			$video['commentcnt'] = $this->video_model->getCommentsCountForVideo($video['id']);
+			$video['reviews'] = $this->video_model->getApplauses(array('v_id'=>$video['id']));
+			$video['views'] = $this->video_model->totalViews(array('video_id'=>$video['id']));
+			$cat_id = $video['category'];
+			
+			foreach($categories as $cat) {
+				if ($cat_id == $cat['id']) {
+					$video['category'] = $cat['category_name'];
+					$video['category_id'] = $cat_id;
+				}
+			}
 			$my_videos[count($my_videos)] = $video;
 		}
 		
@@ -59,6 +71,10 @@ class Api extends CI_Controller {
 				$cat_id = $video['category'];
 				$date = new DateTime($video['created']);
 				$video['created'] = $date->format('d-m-Y H:i a');
+				$video['commentcnt'] = $this->video_model->getCommentsCountForVideo($video['id']);
+				$video['reviews'] = $this->video_model->getApplauses(array('v_id'=>$video['id']));
+				$video['views'] = $this->video_model->totalViews(array('video_id'=>$video['id']));
+				
 				foreach($categories as $cat) {
 					if ($cat_id == $cat['id']) {
 						$video['category'] = $cat['category_name'];
@@ -81,6 +97,9 @@ class Api extends CI_Controller {
 				if ($video['category'] == $cat['id']) {
 					$video['video'] = base_url('videos/' . $video['video']);
 					$video['image_name'] = base_url('images/' . $video['image_name']);
+					$video['commentcnt'] = $this->video_model->getCommentsCountForVideo($video['id']);
+					$video['reviews'] = $this->video_model->getApplauses(array('v_id'=>$video['id']));
+					$video['views'] = $this->video_model->totalViews(array('video_id'=>$video['id']));
 					$my_videos[count($my_videos)] = $video;
 				}
 			}
@@ -107,6 +126,8 @@ class Api extends CI_Controller {
 		else {
 			$response['comments'] = [];	
 		}
+		
+		$response['commentcnt'] = $this->video_model->getCommentsCountForVideo($video_id);
 		$response['reviews'] = $this->video_model->getApplauses(array('v_id'=>$video_id));
 		
 		if ($userid) {
@@ -153,7 +174,12 @@ class Api extends CI_Controller {
 			echo json_encode(array("success"=> false, "message" => "Send all params"));
 		}
 		else {
-			$this->video_model->applause(($this->input->post('applause') == "true"), array('v_id'=> $this->input->post('videoid'), 'userid' => $this->input->post('userid')));
+			if ($this->video_model->applause(($this->input->post('applause') == "true"), array('v_id'=> $this->input->post('videoid'), 'userid' => $this->input->post('userid')))) {
+				echo json_encode(array("success"=> true, "message" => "Applause Added"));
+			}
+			else {
+				echo json_encode(array("success"=> false, "message" => "Failed to add applause"));
+			}
 		}	
 	}
 	

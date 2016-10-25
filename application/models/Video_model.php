@@ -8,7 +8,12 @@ class Video_model extends CI_Model {
     }
     
     public function store_video($details) {
-        $this->db->insert('videos', array('video_name' => $details['videoname'], 'video_descript' => $details['videodesc'], 'video' => $details['file_name'], 'fullpath' => $details['full_path'], 'formatted' => false, 'image_name' => $details["raw_name"] . ".png" , "cost" => ($details["cost"] == "free")?0:10, "video_category" => $details["category"]));
+        $this->db->insert('videos', array('video_name' => $details['videoname'], 'video_descript' => $details['videodesc'], 'video' => $details['file_name'], 'fullpath' => $details['full_path'], 'reviewed' => true, 'image_name' => $details["raw_name"] . ".png" , "cost" => ($details["cost"] == "free")?0:10, "video_category" => $details["category"]));
+        return $this->db->insert_id();
+    }
+    
+    public function store_video_in_review($details) {
+        $this->db->insert('videos', array('video_name' => $details['videoname'], 'video_descript' => $details['videodesc'], 'video' => $details['file_name'], 'fullpath' => $details['full_path'], 'image_name' => $details["raw_name"] . ".png" , "cost" => ($details["cost"] == "free")?0:10, "video_category" => $details["category"]));
         return $this->db->insert_id();
     }
     
@@ -89,11 +94,13 @@ class Video_model extends CI_Model {
         $results = $this->db->get_where('like_tally', $details);
         if ($results->num_rows() > 0) {
             //`v_id``applause``userid`
-            $this->db->update('like_tally', array('applause' => $isApplaused), $details);
+            return $this->db->update('like_tally', array('applause' => $isApplaused), $details);
         }
         else {
             $details['applause'] = $isApplaused;
             $this->db->insert('like_tally', $details);
+            $id = $this->db->insert_id();
+            return isset($id);
         }
     }
     
@@ -115,6 +122,14 @@ class Video_model extends CI_Model {
         $dislikes = $this->db->get_where('like_tally', $details);
         
         return array("applaused" => ($applauses->num_rows() > 0), "disliked" => ($dislikes->num_rows() > 0));
+    }
+    
+    public function getCommentsCountForVideo($v_id) {
+        $this->db->select('COUNT(*) as commentCount');
+        $this->db->where("v_id", $v_id);
+        $this->db->from('comments');
+        $comm = $this->db->get();
+        return $comm->result_array()[0]['commentCount'];
     }
 }
 

@@ -95,8 +95,8 @@ $(document).ready(function() {
         }
         $(this).ajaxSubmit({ 
             success:function (response){
-                $('.uploadform').css('display', 'none');
-                $('.popup.popup-loader').hide();
+                response = JSON.parse(response);
+                $('.editform').css('display', 'none');
                 if(response.success) {
                     window.location.reload();
                     alertShow(message);

@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="centerform">
-    <?php echo form_open('admin'); ?>
+    <?php echo form_open('videoadmin'); ?>
     <h2>
         Admin Login
     </h2>
