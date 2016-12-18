@@ -299,11 +299,20 @@ div#alert.alertbackdrop, div#confirm.alertbackdrop {
     z-index: 1000;
 }
 
+#videotable_wrapper td:nth-child(3) {
+    float: left;
+    height: 70px;
+    overflow: hidden;
+    width: 200px;
+}
 
 body > div#videoplayer .cross {
-    border-radius: 20px;
     background-color: #fff;
+    border: medium none;
+    border-radius: 20px;
     box-shadow: none;
+    cursor: pointer;
+    float: right;
     height: 40px;
     padding: 0;
     position: relative;
@@ -312,7 +321,6 @@ body > div#videoplayer .cross {
     top: -20px;
     width: 40px;
     z-index: 1000;
-    float: right;
 }
 
 body > div.container div.videocontainer {
@@ -361,13 +369,20 @@ body > div.container div.videocontainer > .videotitle {
 body > div.container div.videocontainer > .aboutvideo {
     display: block;
     float: left;
+    height: 75px;
+    overflow-wrap: break-word;
     padding: 0 0 0 5%;
-    width: 35%;
+    white-space: pre-line;
+    width: 90%;
 }
 
 body > div.container div.videocontainer > .aboutvideo > p.video-description {
     float: left;
-    width: 60%;
+    height: 64%;
+    overflow-y: hidden;
+    white-space: normal;
+    width: 100%;
+    line-height: 17px;
 }
 
 
@@ -388,8 +403,8 @@ body > div.container div.videocontainer div.imagedisp {
     cursor: pointer;
     display: block;
     float: left;
-    height: 125px;
-    width: 60%;
+    height: 160px;
+    width: 100%;
 }
 
 .video-list {
@@ -438,6 +453,16 @@ div#alert .matter > button {
     background-color: #2ba37f;
     display: block;
     margin: auto;
+}
+
+#videotable_wrapper thead tr > th:nth-child(1) {
+    max-width: 50px;
+    min-width: 45px;
+}
+
+#videotable_wrapper thead tr > th:nth-child(2) {
+    max-width: 105px;
+    min-width: 100px;
 }
 
 div#confirm .matter > div > button.hidebtn:first-child {

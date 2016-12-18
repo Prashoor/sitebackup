@@ -98,8 +98,11 @@ $(document).ready(function() {
                 response = JSON.parse(response);
                 $('.editform').css('display', 'none');
                 if(response.success) {
-                    window.location.reload();
                     alertShow(message);
+
+                    setTimeout(function(){
+                        window.location.reload();
+                    }, 200);
                 }
                 else if (response.error != null){
                     alertShow(error);

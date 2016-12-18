@@ -61,7 +61,7 @@ $(document).ready(function(){
             },
             uploadProgress: function (event, position, total, percentComplete){	
                 $(".popup.popup-loader #video-uploader > span").width(percentComplete + '%');
-                $('.popup popup-loader .popup-content h2').text("Uploaded " + percentComplete + "%");
+                $('.popup.popup-loader .popup-content h2').text("Uploaded " + percentComplete + "%");
             },
             success:function (response){
                 $('.uploadform').css('display', 'none');

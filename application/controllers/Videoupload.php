@@ -17,8 +17,9 @@ class Videoupload extends CI_Controller {
 	public function upload_video() {
 		if ($this->input->post('videoname')) {
 			$datapost = $this->input->post();
+			
 			$config = array(
-					'allowed_types' =>  'mp4|3gp|flv',
+					'allowed_types' =>  '*',//'mp4|3gp|flv|mpeg|mpg',
 					'max_size'=>'0',
 					'upload_path' => $this->upload_path
 			);
@@ -102,5 +103,4 @@ class Videoupload extends CI_Controller {
 			echo json_encode(array("success"=> false, "message" => "You are not logged in"));
 		}
 	}
-	
 }
