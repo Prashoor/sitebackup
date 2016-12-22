@@ -63,6 +63,7 @@ $(document).ready(function() {
             if(shoulddelete) {
                 $.get('http://filmibaksa.com/videoupload/delete_video/' + data.id, function( data ) {
                     data = JSON.parse(data);
+                    openScroll();
                   if (data.success) {
                       table.ajax.reload();
                   }
@@ -74,6 +75,7 @@ $(document).ready(function() {
     $('#videotable tbody').on( 'click', 'button.edit', function () {
         var data = table.row( $(this).parents('tr') ).data();
         console.log('Data:' + JSON.stringify(data));
+        scrollTop();
         $('div.editform').removeAttr('style');
         $('form#video_edit_form input[name="videoid"]').val(data.id);
         $('form#video_edit_form input[name="videoname"]').val(data.video_name);
@@ -96,17 +98,17 @@ $(document).ready(function() {
         $(this).ajaxSubmit({ 
             success:function (response){
                 response = JSON.parse(response);
+                openScroll();
                 $('.editform').css('display', 'none');
                 if(response.success) {
                     alertShow(message);
-
-                    setTimeout(function(){
-                        window.location.reload();
-                    }, 200);
                 }
                 else if (response.error != null){
                     alertShow(error);
                 }
+                setTimeout(function(){
+                    window.location.reload();
+                }, 200);
             },
             resetForm: true 
         });

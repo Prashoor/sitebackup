@@ -30,8 +30,8 @@ class Api extends CI_Controller {
 		}
     }
 	
-	public function featured() {
-		$videos = $this->video_model->get_featured();
+	public function featured($cat = false) {
+		$videos = $this->video_model->get_featured($cat);
 		$categories = $this->video_model->getcategories();
 		$my_videos = array();
 		foreach($videos as $video) {

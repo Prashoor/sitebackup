@@ -18,12 +18,22 @@ class Video_model extends CI_Model {
     }
     
     public function get_videos() {
-        $query = $this->db->query('SELECT  `id`,`video_name`, `video_descript` as description, `image_name`, `video`, `cost`, `video_category` as category, `video_time` as created FROM `videos` WHERE `deleted`=FALSE');
+        $qryStr = 'SELECT  `id`,`video_name`, `video_descript` as description, `image_name`, `video`, `cost`, `video_category` as category, `video_time` as created FROM `videos` WHERE `deleted`=FALSE';
+        $query = $this->db->query($qryStr);
         return $query->result_array();
     }
     
-    public function get_featured() {
-        $query = $this->db->query('SELECT  `id`,`video_name`, `video_descript` as description, `image_name`, `video`, `cost`, `video_category` as category, `video_time` as created FROM `videos` WHERE `featured`=TRUE AND `deleted`=FALSE');
+    public function get_featured($cat) {
+        $qry = 'SELECT  `id`,`video_name`, `video_descript` as description, `image_name`, `video`, `cost`, `video_category` as category, `video_time` as created FROM `videos` WHERE `featured`=TRUE AND `deleted`=FALSE';
+        if ($cat) {
+            $qryStr2 = $qry. ' AND `video_category`=' . $cat;
+            $query = $this->db->query($qryStr2);
+            $resp = $query->result_array();
+            if (count($resp) > 0) {
+                return $resp;
+            }
+        }
+        $query = $this->db->query($qry);
         return $query->result_array();
     }
     

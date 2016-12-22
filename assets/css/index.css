@@ -15,6 +15,14 @@ body {
     height: 100%;
 }
 
+body.no-scroll {
+    overflow: none;
+}
+
+#uploadpage, #videolist {
+    overflow: hidden;
+}
+
 body > div.header {
     font-family: Vegur;
     background: #ce563f;
@@ -474,5 +482,18 @@ div#confirm .matter > div > button.hidebtn:first-child {
 div#confirm .matter > div > button.hidebtn:last-child {
     background-color: #e33312;
     margin-right: 8%;
+    float: right;
+}
+
+body > div.header ul.nav li button {
+    border: none;
+    min-height: 42px;
+    width: 100%;
+    text-align: left;
+    padding: 0 3px;
+    background-color: white;
+}
+
+body > div.header ul.nav li button i {
     float: right;
 }

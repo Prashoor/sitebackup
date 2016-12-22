@@ -26,6 +26,16 @@
             <ul class="nav">
                 <li><a href="#videolist" class="selected">All Videos</a></li>
                 <li><a href="#uploadpage">Edit Videos</a></li>
+                <li>
+                    <button id="refreshPage">
+                        &nbsp;Reload data<i class="fa fa-refresh"></i>
+                    </button>
+                </li>
+                <li>
+                    <button class="upload-video">
+                        &nbsp;Upload Video<i class="fa fa-upload" aria-hidden="true"></i>
+                    </button>
+                </li>
                 <li><a href="<?php echo site_url('videoadmin/logout');?>">Logout</a></li>
             </ul>
         </div>
@@ -36,12 +46,6 @@
             <h3>
                 All Videos
             </h3>
-            <button>
-                <i class="fa fa-refresh"></i>&nbsp;Reload data
-            </button>
-            <button class="upload-video">
-                <i class="fa fa-upload" aria-hidden="true"></i> Upload Video
-            </button>
         </div>
         <div class="video-list">
             <?php if (count($allvideos) == 0) { ?>
@@ -87,14 +91,8 @@
             <h3>
                 Edit Videos
             </h3>
-            <button>
-                <i class="fa fa-refresh"></i>&nbsp;Reload data
-            </button>
-            <button class="upload-video">
-                <i class="fa fa-upload" aria-hidden="true"></i> Upload Video
-            </button>
         </div>
-        <div>
+        <div class="video-list">
             <table id="videotable" class="row-border hover">
                 <thead>
                     <tr>
@@ -121,7 +119,7 @@
                 <ul class="form">
                     <li><label class="input"><span>Video Name </span><input name="videoname" type="text" placeholder="Enter Video Name"/></label></li>
                     <li><label class="input"><span>Video Description </span><textarea name="videodesc" placeholder="Enter Video Description"></textarea></label></li>
-                    <li><label for="video" class="fileupload" style="cursor: pointer;">Select Video</label><input style="display:none" name="video" type="file" id="video"/></li>
+                    <li><label for="video" class="fileupload" style="cursor: pointer;">Select Video</label><input style="display:none" name="video" type="file" id="video" /></li>
                     <li><label class="input">
                         <span>Price </span>
                         <select name="cost" type="text" placeholder="Select Cost">
@@ -162,7 +160,7 @@
       $attributes = array('name' => 'video_edit_form', 'id' => 'video_edit_form');
       echo form_open('videoupload/editvideo', $attributes);
     ?>
-            <input type="hidden" name="videoid"/>
+                <input type="hidden" name="videoid" />
                 <ul class="form">
                     <li><label class="input"><span>Video Name </span><input name="videoname" type="text" placeholder="Enter Video Name"/></label></li>
                     <li><label class="input"><span>Video Description </span><textarea name="videodesc" placeholder="Enter Video Description"></textarea></label></li>

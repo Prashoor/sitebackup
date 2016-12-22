@@ -8,10 +8,20 @@ function alertShow(message) {
     
     $('#alert').remove();
     $('body').append(template);
-    
+    scrollTop();
     $('#alertbtn').click(function(){
         $('#alert').remove();
+        openScroll();
     });
+}
+
+function scrollTop(){
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    $('body').addClass('no-scroll');
+}
+
+function openScroll(){
+    $('body').removeClass('no-scroll');
 }
 
 var cnt = 0;
@@ -23,17 +33,21 @@ function videoShow(data) {
                      '<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>' + 
                 '</video></div>' +
     '</div>';
-    
+    scrollTop();
     $('#videoplayer').remove();
     $('body').append(videotemp);
     videojs('vjs-player'+ cnt);
     $('#videoplayer button.cross').click(function(){
+        openScroll();
         $('#videoplayer').remove();
     });
     cnt++;
 }
 
 $(document).ready(function(){
+    $('#refreshPage').click(function(){
+        window.location.reload();    
+    });
     
     $("input:file").change(function (){
         var fileName = $(this).val();
@@ -66,13 +80,16 @@ $(document).ready(function(){
             success:function (response){
                 $('.uploadform').css('display', 'none');
                 $('.popup.popup-loader').hide();
+                openScroll();
                 if(response.success) {
-                    window.location.reload();
                     alertShow(message);
                 }
                 else if (response.error != null){
                     alertShow(error);
                 }
+                setTimeout(function(){
+                    window.location.reload();
+                }, 1000)
             },
             resetForm: true 
         });
@@ -80,11 +97,13 @@ $(document).ready(function(){
     
     $('.closeuploader').click(function(ev){
         ev.preventDefault;
+        openScroll();
         $('.uploadform').css('display', 'none');
         $('.editform').css('display', 'none');
     });
     
     $('.upload-video').on('click', function(){
+        scrollTop();
         $('.uploadform').removeAttr('style');
     })
     
