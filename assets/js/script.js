@@ -72,9 +72,10 @@ $(document).ready(function(){
             beforeSubmit: function() {
                 $('.popup.popup-loader').show();
                 $(".popup.popup-loader #video-uploader > span").width('0%');
+                $('.popup.popup-loader .popup-content h2').html("Preparing your video..<br/>Don't refresh the page");
             },
             uploadProgress: function (event, position, total, percentComplete){	
-                $(".popup.popup-loader #video-uploader > span").width(percentComplete + '%');
+                $(".popup.popup-loader #video-uploader > span").width(parseFloat(percentComplete) + '%');
                 $('.popup.popup-loader .popup-content h2').text("Uploaded " + percentComplete + "%");
             },
             success:function (response){

@@ -149,7 +149,7 @@
                             <div id="video-uploader" class="loader">
                                 <span style="width: 3%;"></span>
                             </div>
-                            <h2 style="color: #36e758">Uploaded 0%</h2>
+                            <h2>Uploaded 0%</h2>
                         </div>
                     </div>
         </div>

@@ -45,3 +45,8 @@
   border-radius: 50px;
 }
 
+.popup.popup-loader .popup-content h2 {
+    color: #36e758;
+    font-size: 21px;
+}
+
