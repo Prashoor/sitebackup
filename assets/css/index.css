@@ -207,18 +207,21 @@ label.input span {
 #videotable_wrapper tbody tr > td:last-child > button {
     border: none;
     color: #fff;
-    width: 100px;
+    width: 90px;
     height: 30px;
-    position:relative;
     border-radius: 7px;
-    float: left;
     font-size: 15px;
-    margin: 0 10px;
 }
+
+#videotable_wrapper tbody tr > td:last-child > button:last-child {
+  float: right;
+}
+
 #videotable_wrapper tbody tr > td:last-child {
-    padding: 3px 10px;
-    position:relative;
-    float: left;
+    padding: 3px 5px;
+    position: relative;
+    align-items: center;
+    min-width: 200px;
 }
 
 #videotable_wrapper tbody tr > td:last-child > button.edit {

@@ -55,15 +55,15 @@ class Api extends CI_Controller {
 	}
 	
 	public function all_videos() {
-		$videos = $this->video_model->get_videos();
-		$my_videos = array();
-		$draw = $this->input->post('draw');
 		$start = $this->input->post('start');
 		$length = $this->input->post('length');
+		$videos = $this->video_model->get_videos($start, $length);
+		$my_videos = array();
+		$draw = $this->input->post('draw');
 
 		$categories = $this->video_model->getcategories();
 
-		for($i = $start; $i < ($start + $length); $i++) {
+		for($i = 0; $i < count($videos); $i++) {
 			if (isset($videos[$i])) {
 				$video = $videos[$i];
 				unset($video['video']);// = base_url('videos/' . $video['video']);
@@ -84,7 +84,8 @@ class Api extends CI_Controller {
 				$my_videos[count($my_videos)] = $video;
 			}
 		}
-		echo json_encode(array("draw" => $draw,"recordsTotal" => count($videos), "recordsFiltered" => count($my_videos), "data" => $my_videos));
+		$count = $this->video_model->getVideoCount();
+		echo json_encode(array("draw" => $draw,"recordsTotal" => $count, "recordsFiltered" => $count, "data" => $my_videos));
 	}
 	
 	public function categorized_videos() {

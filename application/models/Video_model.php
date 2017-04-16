@@ -17,10 +17,23 @@ class Video_model extends CI_Model {
         return $this->db->insert_id();
     }
     
-    public function get_videos() {
-        $qryStr = 'SELECT  `id`,`video_name`, `video_descript` as description, `image_name`, `video`, `cost`, `video_category` as category, `video_time` as created FROM `videos` WHERE `deleted`=FALSE';
-        $query = $this->db->query($qryStr);
+    public function get_videos($start = 0, $length = 0) {
+        $this->db->select('`id`,`video_name`, `video_descript` as description, `image_name`, `video`, `cost`, `video_category` as category, `video_time` as created');
+        $this->db->where('deleted', FALSE);
+        if ($length == 0) {
+          $query = $this->db->get('videos');
+        }
+        else {
+          $query = $this->db->get('videos', $length, $start);
+        }
         return $query->result_array();
+    }
+  
+    public function getVideoCount() {
+      $this->db->select('COUNT(*) as count');
+      $this->db->where('deleted', FALSE);
+      $query = $this->db->get('videos');
+      return $query->result_array()[0]['count'];
     }
     
     public function get_featured($cat) {
